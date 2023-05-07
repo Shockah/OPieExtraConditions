@@ -28,6 +28,7 @@ You can specify the rank of the skill like this: `[riding:<rank>]`:
 * apprentice/60
 * journeyman/100
 * expert/150/flying
+* artisan/280
 * master/310
 
 For example, `[riding:flying]` will be active if the player has learned at least the Expert rank of riding (so, Expert or Master).
@@ -41,6 +42,12 @@ A `[dragonridable]` condition can be used to check whether Dragonriding mounts c
 As usual, `[nodragonridable]` also works, just like other conditions.
 
 # Release notes
+
+## 1.0.1
+Released 7 May 2023.
+
+* Added `artisan`/`280` riding handling (usually available on some weird toons, like boosted ones).
+* Added support for Zaralek Caverns (WoW 10.1).
 
 ## 1.0.0
 Released 3 December 2022.

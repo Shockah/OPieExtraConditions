@@ -32,8 +32,8 @@ end
 -- setup `[riding]` condition
 -- parameters: <rank>
 -- - `rank` can be:
---   - `apprentice`/`journeyman`/`expert`/`master`
---   - `60`/`100`/`150`/`310` - only those exact values, matching above ranks
+--   - `apprentice`/`journeyman`/`expert`/`artisan`/`master`
+--   - `60`/`100`/`150`/`280`/`310` - only those exact values, matching above ranks
 --   - `flying` - same as `expert`
 do
 	local spells = {
@@ -48,6 +48,10 @@ do
 		{
 			SpellID = 34090,
 			Values = {"expert", "150", "flying"}
+		},
+		{
+			SpellID = 34091,
+			Values = {"artisan", "280"}
 		},
 		{
 			SpellID = 90265,
@@ -85,8 +89,10 @@ end
 -- no parameters
 do
 	local function GetState()
-		local isDragonIslesInstance = select(8, GetInstanceInfo()) == 2444
-		if not isDragonIslesInstance then
+		local instanceID = select(8, GetInstanceInfo())
+		local isDragonIslesInstance = instanceID == 2444
+		local isZaralekCavernsInstance = instanceID == 2454
+		if (not isDragonIslesInstance) and (not isZaralekCavernsInstance) then
 			local foundUsable = false
 			local mountIds = C_MountJournal.GetCollectedDragonridingMounts()
 			if mountIds then
